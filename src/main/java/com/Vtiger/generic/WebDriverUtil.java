@@ -2,7 +2,6 @@ package com.Vtiger.generic;
 
 import java.io.File;
 import java.time.Duration;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,11 +10,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.google.common.io.Files;
+
 public class WebDriverUtil {
-	WebDriver driver;
+	  WebDriver driver;
 	public WebDriverUtil(WebDriver driver) {
 		this.driver=driver;
-		
 	}
 	public void url(String url) {
 		driver.get(url);
@@ -26,10 +26,10 @@ public class WebDriverUtil {
 	public void minimize() {
 		driver.manage().window().minimize();
 	}
-	public void implicit() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	public void implicit(int seconds) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
-	public void selectByIndex(WebElement element, int num ) {
+	public void selectByIndex(WebElement element, int num) {
 		Select select = new Select(element);
 		select.selectByIndex(num);
 	}
@@ -54,7 +54,7 @@ public class WebDriverUtil {
 		actions.moveToElement(element).contextClick().build().perform();
 	}
 	public void forward() {
-	  driver.navigate().forward();
+		driver.navigate().forward();
 	}
 	public void back() {
 		driver.navigate().back();
@@ -78,10 +78,19 @@ public class WebDriverUtil {
 		Alert alert = driver.switchTo().alert();
 		alert.getText();
 	}
+	public void switchToDefault() {
+		driver.switchTo().defaultContent();
+	}
 	public void screenshot(String path) throws Throwable {
+		driver=PropertyFile.driver;
 		TakesScreenshot ts = (TakesScreenshot)driver;
-		 File gs = ts.getScreenshotAs(OutputType.FILE);
-		 File file = new File(path);
-		 FileUtils.copyFile(gs, file);
+		//String screenshot=path;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		File dest = new File(path);
+		Files.copy(src, dest);
+		// return screenshot;
+	}
+	public void closeBrowser() {
+		driver.close();
 	}
 }

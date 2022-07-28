@@ -1,4 +1,4 @@
-package Dump;
+package JavaDump;
 
 public class Addingint {
 public static void main(String[] args) {

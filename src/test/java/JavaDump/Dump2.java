@@ -1,4 +1,4 @@
-package Dump;
+package JavaDump;
 
 public class Dump2 extends FinalMethod {
 public static void main(String[] args) {
