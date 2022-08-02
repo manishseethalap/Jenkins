@@ -12,7 +12,7 @@ public class PropertyFile {
 	public static WebDriver driver;
 	public static WebDriver sdriver;
 	public String readDatafromPropfile(String key) throws Throwable {
-		String path="../SDET7_MAN/Files/browser.PROPERTIES";
+		String path=IAutoConsts.propertyFile;
 		FileInputStream fis = new FileInputStream(path);
 		Properties prop = new Properties();
 		prop.load(fis);
