@@ -17,7 +17,7 @@ import com.Vtiger.generic.WebDriverUtil;
 @Listeners(com.Vtiger.generic.Listeners.class)
 public class TC_04_CreateCamppageTest extends BaseClass{
 	WebDriver driver;
-	@Test(retryAnalyzer = Retryanalyser.class)
+	@Test(groups="Regression",retryAnalyzer = Retryanalyser.class)
 	public void createCampaignTest() throws Throwable {
 		driver = PropertyFile.driver;
 		HomePage hp = new HomePage(driver);

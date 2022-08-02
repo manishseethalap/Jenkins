@@ -84,11 +84,9 @@ public class WebDriverUtil {
 	public void screenshot(String path) throws Throwable {
 		driver=PropertyFile.driver;
 		TakesScreenshot ts = (TakesScreenshot)driver;
-		//String screenshot=path;
 		File src = ts.getScreenshotAs(OutputType.FILE);
 		File dest = new File(path);
 		Files.copy(src, dest);
-		// return screenshot;
 	}
 	public void closeBrowser() {
 		driver.close();

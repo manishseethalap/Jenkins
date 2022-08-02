@@ -18,7 +18,7 @@ import com.Vtiger.generic.WebDriverUtil;
 public class TC_03_CreateOrg_DeleteTest extends BaseClass {
 	public static WebDriver driver;
 	
-	@Test(retryAnalyzer = Retryanalyser.class)
+	@Test(groups="Regression",retryAnalyzer = Retryanalyser.class)
 	public void createOrgdeletetest() throws Throwable {
 		driver = PropertyFile.driver;
 		HomePage hp=new HomePage(driver);

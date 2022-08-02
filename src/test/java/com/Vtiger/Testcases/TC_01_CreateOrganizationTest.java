@@ -16,7 +16,7 @@ import com.Vtiger.generic.WebDriverUtil;
 
 @Listeners(com.Vtiger.generic.Listeners.class)
 public class TC_01_CreateOrganizationTest extends BaseClass{
-	@Test(retryAnalyzer = Retryanalyser.class)
+	@Test(groups = "Smoke",retryAnalyzer = Retryanalyser.class)
 	public void createorgtest() throws Throwable {
 		driver = PropertyFile.driver;
 		HomePage hp = new HomePage(driver);

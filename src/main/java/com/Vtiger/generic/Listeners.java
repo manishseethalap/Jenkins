@@ -32,7 +32,6 @@ public class Listeners extends BaseClass implements ITestListener  {
 		String methodname = result.getMethod().getMethodName();
 		WebDriverUtil wb = new WebDriverUtil(driver);
 		int r = MyRandom.randomNumber();
-
 		String path=IAutoConsts.screenshotfile+methodname+r+".png";
 		try {
 			wb.screenshot(path);

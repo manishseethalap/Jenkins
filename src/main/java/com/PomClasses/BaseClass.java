@@ -16,36 +16,36 @@ public class BaseClass {
 	public static WebDriver driver;
 	PropertyFile pf = new PropertyFile();
 	
-	@BeforeSuite
+	@BeforeSuite(groups = {"Smoke","Regression"})
 	public void connectToDB() {
 		System.out.println("Connected to DB");
 	}
-	@BeforeClass
+	@BeforeClass(groups = {"Smoke","Regression"})
 	public void launchBrowser() throws Throwable {
 		driver=pf.selectBrowser("browser");
 		WebDriverUtil wb = new WebDriverUtil(driver);
 		wb.url(pf.readDatafromPropfile("URL"));
 		wb.maximize();
 	}
-	@BeforeMethod
+	@BeforeMethod(groups = {"Smoke","Regression"})
 	public void logIn() throws Throwable {
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.getusernametxtbox().sendKeys(pf.readDatafromPropfile("username"));
 		loginpage.getpasswordtextbox().sendKeys(pf.readDatafromPropfile("password"));
 		loginpage.getloginbutton().click();
 	}
-	@AfterMethod
+	@AfterMethod(groups = {"Smoke","Regression"})
 	public void logOut() {
 		HomePage homepage = new HomePage(driver);
 		homepage.getsignoutimg().click();
 		homepage.getsignoutlink().click();
 	}
-	@AfterClass
+	@AfterClass(groups = {"Smoke","Regression"})
 	public void closeBrowser() {
 		WebDriverUtil wb = new WebDriverUtil(driver);
 		wb.closeBrowser();
 	}
-	@AfterSuite
+	@AfterSuite(groups = {"Smoke","Regression"})
 	public void disconnectFromDB() {
 		System.out.println("Disconnected from DB");
 	}

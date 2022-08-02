@@ -15,7 +15,7 @@ import com.Vtiger.generic.WebDriverUtil;
 
 @Listeners(com.Vtiger.generic.Listeners.class)
 public class TC_05_DeleteCampaignTest extends BaseClass {
-	@Test(retryAnalyzer = Retryanalyser.class)
+	@Test(groups={"Smoke","Regression"},retryAnalyzer = Retryanalyser.class)
 	public void deletecamoaigntest() throws Throwable {
 	driver = PropertyFile.driver;
 	HomePage hp = new HomePage(driver);
