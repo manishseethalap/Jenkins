@@ -5,6 +5,9 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+
+import com.Vtiger.generic.IAutoConsts;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class PropertiesFile {
 	/**
@@ -21,7 +24,7 @@ public class PropertiesFile {
 	 * @throws Throwable
 	 */
 public void propertyFileData(String key) throws Throwable {
-	FileInputStream fis = new FileInputStream("../SDET7_MAN/Files/browser.PROPERTIES");
+	FileInputStream fis = new FileInputStream(IAutoConsts.propertyFile);
 	Properties prop = new Properties();
 	prop.load(fis);
 	String pobj =prop.getProperty(key);

@@ -7,6 +7,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+
+import com.Vtiger.generic.IAutoConsts;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -20,7 +22,7 @@ public class Reports {
 	ExtentTest test;
 	@Test
 	public void reportCreation() throws Throwable{
-		reporter = new ExtentSparkReporter("../SDET7_MAN/zreport/report.html");
+		reporter = new ExtentSparkReporter(IAutoConsts.reportfile);
 		reporter.config().setDocumentTitle("Facebook");
 		reporter.config().setTheme(Theme.STANDARD);
 		reports = new ExtentReports();
